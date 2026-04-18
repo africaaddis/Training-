@@ -1,0 +1,1426 @@
+I'll create a comprehensive HTML training tutorial for all user types that you can host on GitHub Pages. This will be a complete, self-contained HTML document with beautiful styling, responsive design, and detailed content for all user roles.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peace & Security Management System - Complete Training Tutorial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: #D4AF37;
+            color: #2c3e50;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-top: 15px;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .nav-tabs ul {
+            display: flex;
+            list-style: none;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-tabs li {
+            padding: 0;
+        }
+
+        .nav-tabs a {
+            display: inline-block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-tabs a:hover {
+            color: #3498db;
+            background: #f0f7ff;
+        }
+
+        .nav-tabs a.active {
+            color: #3498db;
+            border-bottom-color: #3498db;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin: 20px 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .card h4 {
+            color: #3498db;
+            margin: 15px 0 8px 0;
+            font-size: 1.1rem;
+        }
+
+        /* Role Cards */
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .role-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .role-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .role-card.active {
+            border-color: #3498db;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+        }
+
+        .role-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+        .role-icon i {
+            font-size: 30px;
+            color: white;
+        }
+
+        .role-card h3 {
+            margin: 10px 0;
+            color: #2c3e50;
+        }
+
+        .role-card p {
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .data-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Status Badges */
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-success { background: #d4edda; color: #155724; }
+        .badge-pending { background: #fff3cd; color: #856404; }
+        .badge-error { background: #f8d7da; color: #721c24; }
+        .badge-info { background: #d1ecf1; color: #0c5460; }
+        .badge-warning { background: #fff3cd; color: #856404; }
+
+        /* Permission Table */
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        .permission-table th {
+            background: #2c3e50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .permission-table td {
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .permission-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            background: #f8f9fa;
+        }
+
+        .check-yes { color: #27ae60; font-weight: bold; }
+        .check-no { color: #e74c3c; }
+
+        /* Steps */
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-content h4 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+        }
+
+        /* Tips */
+        .tip-box {
+            background: #e8f4fd;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .tip-box i {
+            color: #3498db;
+            margin-right: 10px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box i {
+            color: #f39c12;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 99;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-tabs ul {
+                padding: 0 10px;
+            }
+
+            .nav-tabs a {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .role-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .data-table {
+                font-size: 12px;
+            }
+
+            .data-table th, .data-table td {
+                padding: 8px;
+            }
+
+            .permission-table {
+                font-size: 11px;
+            }
+
+            .step-list li {
+                flex-direction: column;
+            }
+
+            .step-number {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media print {
+            .nav-tabs, .scroll-top, .role-card {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+            }
+
+            .card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="header">
+    <h1><i class="fas fa-shield-alt"></i> Peace & Security Management System</h1>
+    <p>Complete Training Tutorial for All User Types</p>
+    <div class="badge"><i class="fas fa-graduation-cap"></i> Official Training Guide</div>
+</div>
+
+<div class="nav-tabs">
+    <ul>
+        <li><a href="#" data-tab="overview" class="active"><i class="fas fa-info-circle"></i> Overview</a></li>
+        <li><a href="#" data-tab="blok"><i class="fas fa-cube"></i> Blok User</a></li>
+        <li><a href="#" data-tab="ketena"><i class="fas fa-layer-group"></i> Ketena User</a></li>
+        <li><a href="#" data-tab="district"><i class="fas fa-building"></i> District User</a></li>
+        <li><a href="#" data-tab="subcity-staff"><i class="fas fa-user-tie"></i> Sub-City Staff</a></li>
+        <li><a href="#" data-tab="subcity-admin"><i class="fas fa-city"></i> Sub-City Admin</a></li>
+        <li><a href="#" data-tab="city"><i class="fas fa-landmark"></i> City User</a></li>
+        <li><a href="#" data-tab="system-admin"><i class="fas fa-server"></i> System Admin</a></li>
+        <li><a href="#" data-tab="common"><i class="fas fa-tools"></i> Common Features</a></li>
+    </ul>
+</div>
+
+<div class="container">
+    <!-- OVERVIEW TAB -->
+    <div id="overview" class="tab-content active">
+        <div class="card">
+            <h2><i class="fas fa-info-circle"></i> System Overview</h2>
+            <p>The <strong>Peace & Security Management System</strong> is a comprehensive platform designed for the Addis Ababa Peace & Security Bureau. It manages peace keepers, crime cases, attendance, certificates, identity cards, and communication across all administrative levels of the city.</p>
+            
+            <div class="tip-box">
+                <i class="fas fa-question-circle"></i>
+                <strong>Who is this training for?</strong> This tutorial covers all user types from Blok users (field level) to Super Admins (system administrators).
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-sitemap"></i> System Hierarchy</h2>
+            <div style="text-align: center; padding: 20px;">
+                <div style="background: linear-gradient(135deg, #2c3e50, #3498db); color: white; padding: 15px; border-radius: 10px; margin: 5px 0;">
+                    <i class="fas fa-landmark"></i> <strong>City</strong> (Addis Ababa)
+                </div>
+                <div style="background: linear-gradient(135deg, #34495e, #2980b9); color: white; padding: 12px; border-radius: 8px; margin: 5px 20px;">
+                    <i class="fas fa-city"></i> <strong>Sub-City</strong> (10 Sub-Cities)
+                </div>
+                <div style="background: linear-gradient(135deg, #3b5998, #1a5276); color: white; padding: 10px; border-radius: 8px; margin: 5px 40px;">
+                    <i class="fas fa-building"></i> <strong>District</strong> (Multiple per Sub-City)
+                </div>
+                <div style="background: linear-gradient(135deg, #4a69bd, #1e3799); color: white; padding: 8px; border-radius: 8px; margin: 5px 60px;">
+                    <i class="fas fa-layer-group"></i> <strong>Ketena</strong> (Multiple per District)
+                </div>
+                <div style="background: linear-gradient(135deg, #5dade2, #2471a3); color: white; padding: 8px; border-radius: 8px; margin: 5px 80px;">
+                    <i class="fas fa-cube"></i> <strong>Blok</strong> (Multiple per Ketena)
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-users"></i> User Roles at a Glance</h2>
+            <div class="role-grid">
+                <div class="role-card" onclick="switchToTab('blok')">
+                    <div class="role-icon"><i class="fas fa-cube"></i></div>
+                    <h3>Blok User</h3>
+                    <p>Field-level user - Manages a single block within a Ketena</p>
+                </div>
+                <div class="role-card" onclick="switchToTab('ketena')">
+                    <div class="role-icon"><i class="fas fa-layer-group"></i></div>
+                    <h3>Ketena User</h3>
+                    <p>Zone-level user - Manages a single Ketena</p>
+                </div>
+                <div class="role-card" onclick="switchToTab('district')">
+                    <div class="role-icon"><i class="fas fa-building"></i></div>
+                    <h3>District User</h3>
+                    <p>District-level manager - Approves and manages</p>
+                </div>
+                <div class="role-card" onclick="switchToTab('subcity-staff')">
+                    <div class="role-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Sub-City Staff</h3>
+                    <p>Sub-City operational staff - Data entry and registration</p>
+                </div>
+                <div class="role-card" onclick="switchToTab('subcity-admin')">
+                    <div class="role-icon"><i class="fas fa-city"></i></div>
+                    <h3>Sub-City Admin</h3>
+                    <p>Sub-City administrator - Approves certificates, manages users</p>
+                </div>
+                <div class="role-card" onclick="switchToTab('city')">
+                    <div class="role-icon"><i class="fas fa-landmark"></i></div>
+                    <h3>City User</h3>
+                    <p>City-level administrator - Full city-wide oversight</p>
+                </div>
+                <div class="role-card" onclick="switchToTab('system-admin')">
+                    <div class="role-icon"><i class="fas fa-server"></i></div>
+                    <h3>System Admin</h3>
+                    <p>Technical administrator - User management, logs, bulk operations</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2><i class="fas fa-chart-line"></i> Training Roadmap</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+                <div style="flex: 1; min-width: 200px;">
+                    <h4><i class="fas fa-seedling"></i> Beginner Level</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Login and Dashboard</li>
+                        <li>Viewing records</li>
+                        <li>Basic navigation</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                    <h4><i class="fas fa-chart-simple"></i> Intermediate Level</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>Registering peace keepers</li>
+                        <li>Registering crime cases</li>
+                        <li>Attendance management</li>
+                        <li>Sending SMS</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                    <h4><i class="fas fa-crown"></i> Advanced Level</h4>
+                    <ul style="margin-left: 20px;">
+                        <li>User management</li>
+                        <li>Certificate approval</li>
+                        <li>Activity logs (Super Admin)</li>
+                        <li>Bulk operations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOK USER TAB -->
+    <div id="blok" class="tab-content">
+        <div class="card">
+            <h2><i class="fas fa-cube"></i> Blok User Training</h2>
+            <div class="tip-box">
+                <i class="fas fa-info-circle"></i>
+                <strong>Role Summary:</strong> Blok users are field-level personnel who manage a specific block within a Ketena. They are the closest point of contact for peace keepers.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-key"></i> Login and First Steps</h3>
+            <ul class="step-list">
+                <li>
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Access the Login Page</h4>
+                        <p>Open your browser and navigate to the system URL provided by your administrator.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Enter Your Credentials</h4>
+                        <p>Username: <strong>Your assigned username</strong><br>PIN/Password: <strong>Your 6-digit PIN</strong></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Complete CAPTCHA (if shown)</h4>
+                        <p>Enter the security code exactly as displayed. It is case-sensitive.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Click Login</h4>
+                        <p>You will be taken to your personalized dashboard.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-tachometer-alt"></i> Your Dashboard</h3>
+            <p>As a Blok user, your dashboard shows:</p>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Component</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Welcome Section</td><td>Shows your name, role (Blok), and location (City, Sub-City, District, Ketena, Blok)</td></tr>
+                    <tr><td>Statistics Cards</td><td>Total peace keepers, crime cases, active members, pending members in your Blok</td></tr>
+                    <tr><td>Quick Actions</td><td>View Peace Keepers, View Crime Cases, QR Attendance, Request Identity Card</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-user-plus"></i> Registering a Peace Keeper</h3>
+            <ul class="step-list">
+                <li>
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Navigate to Register Peace Keeper</h4>
+                        <p>Click <strong>Register Peace Keeper</strong> in the sidebar menu.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Fill Registration Information</h4>
+                        <p><strong>Member Type:</strong> Select "Peace Keepers" (most common)<br>
+                        <strong>Round:</strong> Select the appropriate round (1-8)</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Fill Personal Information</h4>
+                        <p><strong>Full Name:</strong> Complete name of the peace keeper<br>
+                        <strong>Gender:</strong> Male or Female<br>
+                        <strong>Age:</strong> Must be 18 or older<br>
+                        <strong>Date of Birth:</strong> Ethiopian calendar date (dd/mm/yyyy)<br>
+                        <strong>Birth Place:</strong> Where they were born</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Address Information (Auto-filled)</h4>
+                        <p><strong>Ketena:</strong> Auto-filled with your Ketena<br>
+                        <strong>Blok:</strong> Auto-filled with your Blok<br>
+                        <strong>House No:</strong> Enter the peace keeper's house number<br>
+                        <strong>Ethnic Group:</strong> Select their ethnicity</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Contact Information</h4>
+                        <p><strong>Telephone:</strong> Must be 09xxxxxxxx format<br>
+                        <strong>Emergency Contact Name:</strong> Full name of emergency contact<br>
+                        <strong>Emergency Telephone:</strong> Emergency phone number<br>
+                        <strong>Emergency Address:</strong> Emergency contact address</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h4>Upload Photo</h4>
+                        <p>Click the upload area, select a photo (JPG/PNG, max 5MB), wait for preview.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h4>Submit</h4>
+                        <p>Click <strong>Register Peace Keeper</strong> and wait for confirmation. The system generates a unique ID.</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="tip-box">
+                <i class="fas fa-lightbulb"></i>
+                <strong>Pro Tip:</strong> If you enter Age first, the system will suggest a Date of Birth automatically!
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-gavel"></i> Registering a Crime Case</h3>
+            <ul class="step-list">
+                <li>
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Navigate to Register Crime</h4>
+                        <p>Click <strong>Register Crime</strong> in the sidebar menu.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Case Details</h4>
+                        <p><strong>Case Name:</strong> Type the crime name (auto-suggest available)<br>
+                        <strong>Description:</strong> Provide detailed incident description</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Date and Time</h4>
+                        <p><strong>Date:</strong> Ethiopian calendar date (dd/mm/yyyy)<br>
+                        <strong>Time:</strong> Time of incident</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Location (Auto-filled)</h4>
+                        <p><strong>Ketena:</strong> Auto-filled with your Ketena<br>
+                        <strong>Blok:</strong> Auto-filled with your Blok</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Response and Status</h4>
+                        <p><strong>Initial Response:</strong> Action taken (e.g., Police Alerted)<br>
+                        <strong>Current Status:</strong> Open/Under Investigation/Closed<br>
+                        <strong>Investigation Start Date:</strong> Ethiopian date<br>
+                        <strong>Informed By:</strong> Source of report</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h4>Submit</h4>
+                        <p>Click <strong>Submit Crime Case</strong> to save.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-qrcode"></i> QR Attendance Check-In/Out</h3>
+            <ul class="step-list">
+                <li>
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Open Insert Attendance</h4>
+                        <p>Click <strong>Insert Attendance</strong> in the sidebar.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>For Check-In</h4>
+                        <p>Select <strong>Check In</strong> tab → Click <strong>Start Scanner</strong> → Allow camera access → Scan QR code → Click <strong>Check In</strong></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>For Check-Out</h4>
+                        <p>Select <strong>Check Out</strong> tab → Enter peace keeper ID → Click <strong>Check Out</strong></p>
+                    </div>
+                </li>
+            </ul>
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Important:</strong> Each peace keeper can only check in ONCE per day. The system prevents duplicate check-ins.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-envelope"></i> Sending SMS to Peace Keepers</h3>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Click Send SMS</h4><p>Navigate to <strong>Send SMS</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Compose Message</h4><p>Type your message (max 160 characters per SMS). Character count is shown.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Select Recipients</h4><p>Click <strong>Select Peace Keepers</strong> → Check boxes next to names → Click <strong>Add Selected</strong></p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Send</h4><p>Click <strong>Send SMS</strong> to deliver the message.</p></div></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-chart-bar"></i> Viewing Records</h3>
+            <p><strong>View Peace Keepers:</strong> See all peace keepers in your Blok. Use search and filters to find specific members.</p>
+            <p><strong>View Crime Cases:</strong> See all crime cases in your Blok. Filter by date, status, and location.</p>
+            <p><strong>Export Options:</strong> Download data as CSV, Excel, or Print for reports.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-tasks"></i> Your Permissions Summary</h3>
+            <table class="permission-table">
+                <thead><tr><th>Permission</th><th>Available</th><th>Notes</th></tr></thead>
+                <tbody>
+                    <tr><td>Register Peace Keepers</td><td class="check-yes">✅ Yes</td><td>Only for your Blok</td></tr>
+                    <tr><td>Register Crime Cases</td><td class="check-yes">✅ Yes</td><td>Only for your Blok</td></tr>
+                    <tr><td>View Peace Keepers</td><td class="check-yes">✅ Yes</td><td>Your Blok only</td></tr>
+                    <tr><td>View Crime Cases</td><td class="check-yes">✅ Yes</td><td>Your Blok only</td></tr>
+                    <tr><td>Insert Attendance</td><td class="check-yes">✅ Yes</td><td>QR and manual</td></tr>
+                    <tr><td>Send/View SMS</td><td class="check-yes">✅ Yes</td><td>To peace keepers in your Blok</td></tr>
+                    <tr><td>Approve Status Changes</td><td class="check-no">❌ No</td><td>District user responsibility</td></tr>
+                    <tr><td>Delete Records</td><td class="check-no">❌ No</td><td>District user responsibility</td></tr>
+                    <tr><td>Manage Users</td><td class="check-no">❌ No</td><td>System Admin responsibility</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- KETENA USER TAB -->
+    <div id="ketena" class="tab-content">
+        <div class="card">
+            <h2><i class="fas fa-layer-group"></i> Ketena User Training</h2>
+            <div class="tip-box">
+                <i class="fas fa-info-circle"></i>
+                <strong>Role Summary:</strong> Ketena users manage a specific zone (Ketena) within a district. They oversee multiple Bloks and have broader permissions than Blok users.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-chart-line"></i> Dashboard Overview</h3>
+            <p>As a Ketena user, your dashboard shows statistics for your ENTIRE Ketena (all Bloks within it):</p>
+            <table class="data-table">
+                <thead><tr><th>Metric</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>Total Peace Keepers</td><td>All peace keepers across all Bloks in your Ketena</td></tr>
+                    <tr><td>Total Crime Cases</td><td>All crime cases across all Bloks in your Ketena</td></tr>
+                    <tr><td>Active Members</td><td>Peace keepers with Active status</td></tr>
+                    <tr><td>Pending Members</td><td>Peace keepers awaiting approval</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-user-plus"></i> Registering Peace Keepers</h3>
+            <p><strong>Key Difference from Blok User:</strong> Your Ketena field is AUTO-FILLED, but you can select different Bloks within your Ketena.</p>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Navigate to Register Peace Keeper</h4><p>Click <strong>Register Peace Keeper</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Auto-filled Fields</h4><p><strong>Ketena:</strong> Auto-filled with your Ketena (cannot change)<br>
+                <strong>City & Sub-City:</strong> Auto-filled from your profile</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Select Blok</h4><p>Choose which Blok within your Ketena the peace keeper belongs to.</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Fill Remaining Fields</h4><p>Same as Blok user: Personal info, Contact info, Photo.</p></div></li>
+                <li><div class="step-number">5</div><div class="step-content"><h4>Submit</h4><p>Click <strong>Register Peace Keeper</strong>.</p></div></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-gavel"></i> Registering Crime Cases</h3>
+            <p><strong>Key Difference:</strong> Your Ketena is auto-filled, and you can select different Bloks within your Ketena.</p>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Navigate to Register Crime</h4><p>Click <strong>Register Crime</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Location Fields</h4><p><strong>Ketena:</strong> Auto-filled with your Ketena<br>
+                <strong>Blok:</strong> Select the Blok where the incident occurred</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Fill Other Fields</h4><p>Case details, date/time, response, status, informed by.</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Submit</h4><p>Click <strong>Submit Crime Case</strong>.</p></div></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-users-cog"></i> Peace Keepers Management</h3>
+            <p>As a Ketena user, you can view and update peace keepers across ALL Bloks in your Ketena.</p>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Access Management</h4><p>Click <strong>Peace Keepers Management</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Filter by Status</h4><p>Use tabs: All, Not Activated, Active, Pending.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Update Information</h4><p>Click the <strong>Update</strong> button (✏️) to edit peace keeper details.</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>View Details</h4><p>Click the <strong>View</strong> button (👁️) to see complete information.</p></div></li>
+            </ul>
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Note:</strong> Ketena users CANNOT approve status changes. That requires District user approval.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-qrcode"></i> Attendance Management</h3>
+            <p>Same as Blok user: Use QR scanner or manual entry for check-in/out. You can take attendance for peace keepers from any Blok in your Ketena.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-chart-simple"></i> Viewing and Analysis</h3>
+            <p><strong>View Peace Keepers:</strong> See all peace keepers across your entire Ketena.<br>
+            <strong>View Crime Cases:</strong> See all crime cases across your entire Ketena.<br>
+            <strong>Export:</strong> Download data as CSV, Excel, or Print.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-tasks"></i> Ketena User Permissions</h3>
+            <table class="permission-table">
+                <thead><tr><th>Permission</th><th>Available</th><th>Scope</th></tr></thead>
+                <tbody>
+                    <tr><td>Register Peace Keepers</td><td class="check-yes">✅ Yes</td><td>Your Ketena only</td></tr>
+                    <tr><td>Register Crime Cases</td><td class="check-yes">✅ Yes</td><td>Your Ketena only</td></tr>
+                    <tr><td>View All Records</td><td class="check-yes">✅ Yes</td><td>Your entire Ketena</td></tr>
+                    <tr><td>Update Peace Keeper Info</td><td class="check-yes">✅ Yes</td><td>Your Ketena only</td></tr>
+                    <tr><td>Insert Attendance</td><td class="check-yes">✅ Yes</td><td>Any Blok in your Ketena</td></tr>
+                    <tr><td>Send/View SMS</td><td class="check-yes">✅ Yes</td><td>Your Ketena only</td></tr>
+                    <tr><td>Approve Status Changes</td><td class="check-no">❌ No</td><td>District user responsibility</td></tr>
+                    <tr><td>Delete Records</td><td class="check-no">❌ No</td><td>District user responsibility</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- DISTRICT USER TAB -->
+    <div id="district" class="tab-content">
+        <div class="card">
+            <h2><i class="fas fa-building"></i> District User Training</h2>
+            <div class="tip-box">
+                <i class="fas fa-info-circle"></i>
+                <strong>Role Summary:</strong> District users are managers who oversee an entire district. They can approve peace keepers, manage crime cases, create schedules, and manage identity cards.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-chart-line"></i> Dashboard Overview</h3>
+            <p>Your dashboard shows statistics for your ENTIRE DISTRICT (all Ketenas and Bloks):</p>
+            <table class="data-table">
+                <thead><tr><th>Metric</th><th>Description</th></tr></thead>
+                <tbody>
+                    <tr><td>Total Peace Keepers</td><td>All peace keepers across all Ketenas in your district</td></tr>
+                    <tr><td>Total Crime Cases</td><td>All crime cases across all Ketenas in your district</td></tr>
+                    <tr><td>Active Members</td><td>Peace keepers with Active status</td></tr>
+                    <tr><td>Pending Members</td><td>Peace keepers awaiting YOUR approval</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-check-circle"></i> Approving Peace Keepers (Status Change)</h3>
+            <p>This is a critical District user responsibility. Ketena/Blok users register peace keepers, but YOU approve them.</p>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Go to Peace Keepers Management</h4><p>Click <strong>Peace Keepers Management</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Filter Pending Members</h4><p>Click the <strong>Pending</strong> tab to see all peace keepers awaiting approval.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Review Information</h4><p>Click <strong>View</strong> to check all details before approving.</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Update Status</h4><p>Click the <strong>Status</strong> button (🔄) → Select <strong>Active</strong> → Click <strong>Update Status</strong></p></div></li>
+            </ul>
+            <div class="tip-box">
+                <i class="fas fa-lightbulb"></i>
+                <strong>Pro Tip:</strong> You can also change status to "Rejected" with a reason, or "Resign" for leaving members.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-calendar-plus"></i> Creating Attendance Schedules</h3>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Open Create Schedule</h4><p>Click <strong>Create Schedule</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Set Schedule Details</h4><p><strong>Shift:</strong> Morning/Afternoon/Evening/Night<br>
+                <strong>Day Name:</strong> Monday through Sunday<br>
+                <strong>Ketena/Blok:</strong> Optional filters</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Select Peace Keepers</h4><p>Click <strong>Select Peace Keepers</strong> → Check boxes → <strong>Add Selected</strong></p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Optional: Send SMS Notification</h4><p>Check "Send SMS Notification" to automatically notify selected peace keepers.</p></div></li>
+                <li><div class="step-number">5</div><div class="step-content"><h4>Create Schedule</h4><p>Click <strong>Create Schedule</strong> to save.</p></div></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-id-card"></i> Managing Identity Cards</h3>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Open Manage Identity Cards</h4><p>Click <strong>Manage Identity Cards</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>View Pending Requests</h4><p>Click <strong>Pending Requests</strong> tab to see ID card requests.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Approve or Deny</h4><p>Click <strong>Grant</strong> to approve, or <strong>Deny</strong> to reject (with reason).</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Batch Operations</h4><p>Check multiple boxes → Click <strong>Grant Selected</strong> or <strong>Deny Selected</strong></p></div></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-gavel"></i> Managing Crime Cases</h3>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Open Crime Case Management</h4><p>Click <strong>Crime Case Management</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Update Case Info</h4><p>Click <strong>Update</strong> (✏️) to edit case details.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Update Status</h4><p>Click <strong>Status</strong> (🔄) to change case status (Open, Under Investigation, Closed, etc.).</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Delete Case (if needed)</h4><p>Click <strong>Delete</strong> (🗑️) to remove a case (only for non-active cases).</p></div></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-chart-simple"></i> Analysis Tools</h3>
+            <p><strong>Analyze Peace Keepers:</strong> See distribution by Blok, Ketena, gender, job status, etc. Filter by location.<br>
+            <strong>Analyze Crimes:</strong> See crime distribution by type, status, and location.<br>
+            <strong>Crime Geo Location:</strong> View crime hotspots on an interactive map.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-tasks"></i> District User Permissions</h3>
+            <table class="permission-table">
+                <thead><tr><th>Permission</th><th>Available</th><th>Scope</th></tr></thead>
+                <tbody>
+                    <tr><td>Approve Peace Keepers</td><td class="check-yes">✅ Yes</td><td>Your district</td></tr>
+                    <tr><td>Create Attendance Schedules</td><td class="check-yes">✅ Yes</td><td>Your district</td></tr>
+                    <tr><td>Manage Identity Cards</td><td class="check-yes">✅ Yes</td><td>Your district</td></tr>
+                    <tr><td>Manage Crime Cases</td><td class="check-yes">✅ Yes</td><td>Your district</td></tr>
+                    <tr><td>Delete Peace Keepers</td><td class="check-yes">✅ Yes</td><td>Non-active only</td></tr>
+                    <tr><td>Request Certificates</td><td class="check-yes">✅ Yes</td><td>Your district</td></tr>
+                    <tr><td>Manage Users</td><td class="check-no">❌ No</td><td>System Admin responsibility</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SUB-CITY STAFF TAB -->
+    <div id="subcity-staff" class="tab-content">
+        <div class="card">
+            <h2><i class="fas fa-user-tie"></i> Sub-City Staff User Training</h2>
+            <div class="tip-box">
+                <i class="fas fa-info-circle"></i>
+                <strong>Role Summary:</strong> Sub-City Staff are operational personnel who work at the sub-city level. They can register peace keepers and crime cases for ANY district within their sub-city.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-globe"></i> Your Scope</h3>
+            <p>Unlike Blok/Ketena users who are limited to their specific area, you can work across ALL districts in your sub-city.</p>
+            <table class="data-table">
+                <thead><tr><th>District</th><th>You Can Register Peace Keepers?</th><th>You Can Register Crime Cases?</th></tr></thead>
+                <tbody>
+                    <tr><td>District 1</td><td class="check-yes">✅ Yes</td><td class="check-yes">✅ Yes</td></tr>
+                    <tr><td>District 2</td><td class="check-yes">✅ Yes</td><td class="check-yes">✅ Yes</td></tr>
+                    <tr><td>District 3</td><td class="check-yes">✅ Yes</td><td class="check-yes">✅ Yes</td></tr>
+                    <tr><td>District 4</td><td class="check-yes">✅ Yes</td><td class="check-yes">✅ Yes</td></tr>
+                    <tr><td>District 5</td><td class="check-yes">✅ Yes</td><td class="check-yes">✅ Yes</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-user-plus"></i> Registering Peace Keepers (Cross-District)</h3>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Navigate to Register Peace Keeper</h4><p>Click <strong>Register Peace Keeper</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Select District</h4><p>Choose which district the peace keeper belongs to from the dropdown.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Enter Ketena and Blok</h4><p>Enter the specific Ketena and Blok numbers for the peace keeper.</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Fill Remaining Fields</h4><p>Personal info, contact info, photo - same as other users.</p></div></li>
+                <li><div class="step-number">5</div><div class="step-content"><h4>Submit</h4><p>Click <strong>Register Peace Keeper</strong>.</p></div></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-gavel"></i> Registering Crime Cases (Cross-District)</h3>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Navigate to Register Crime</h4><p>Click <strong>Register Crime</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Select District</h4><p>Choose which district the crime occurred in.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Enter Ketena and Blok</h4><p>Enter the specific location within the district.</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Fill Other Fields</h4><p>Case details, date/time, response, status.</p></div></li>
+                <li><div class="step-number">5</div><div class="step-content"><h4>Submit</h4><p>Click <strong>Submit Crime Case</strong>.</p></div></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-eye"></i> Viewing Records</h3>
+            <p>You can view peace keepers and crime cases from ALL districts in your sub-city. Use filters to narrow down by specific district, ketena, or blok.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-tasks"></i> Sub-City Staff Permissions</h3>
+            <table class="permission-table">
+                <thead><tr><th>Permission</th><th>Available</th><th>Scope</th></tr></thead>
+                <tbody>
+                    <tr><td>Register Peace Keepers</td><td class="check-yes">✅ Yes</td><td>Any district in your sub-city</td></tr>
+                    <tr><td>Register Crime Cases</td><td class="check-yes">✅ Yes</td><td>Any district in your sub-city</td></tr>
+                    <tr><td>View All Records</td><td class="check-yes">✅ Yes</td><td>Your entire sub-city</td></tr>
+                    <tr><td>Insert Attendance</td><td class="check-yes">✅ Yes</td><td>Any location in your sub-city</td></tr>
+                    <tr><td>Send/View SMS</td><td class="check-yes">✅ Yes</td><td>Your sub-city only</td></tr>
+                    <tr><td>Approve Status Changes</td><td class="check-no">❌ No</td><td>District user responsibility</td></tr>
+                    <tr><td>Manage Users</td><td class="check-no">❌ No</td><td>System Admin responsibility</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SUB-CITY ADMIN TAB -->
+    <div id="subcity-admin" class="tab-content">
+        <div class="card">
+            <h2><i class="fas fa-city"></i> Sub-City Admin Training</h2>
+            <div class="tip-box">
+                <i class="fas fa-info-circle"></i>
+                <strong>Role Summary:</strong> Sub-City Admins are senior administrators who oversee all districts in their sub-city. They approve certificate requests, manage district users, and have full visibility of their sub-city.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-certificate"></i> Certificate Management (Most Important)</h3>
+            <p>As a Sub-City Admin, you are the FIRST approver for certificate requests from districts.</p>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Open Manage Certificates</h4><p>Click <strong>Manage Certificates</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Review Pending Requests</h4><p>Click <strong>Requested</strong> tab to see certificate requests awaiting YOUR approval.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Preview Certificate</h4><p>Click <strong>Preview</strong> to see how the certificate will look.</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Approve or Reject</h4><p>Click <strong>Approve</strong> to send to City for final approval, or <strong>Reject</strong> with reason.</p></div></li>
+            </ul>
+            <div class="tip-box">
+                <i class="fas fa-lightbulb"></i>
+                <strong>Certificate Workflow:</strong> District requests → YOU approve → City approves → Certificate ready for printing.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-users-cog"></i> User Management (District Users)</h3>
+            <p>You manage District user accounts in your sub-city.</p>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Open User Management</h4><p>Click <strong>User Management</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>View District Users</h4><p>See all district users in your sub-city.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Manage User</h4><p>Click <strong>Manage</strong> to edit user status, name, phone, etc.</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Approve New Users</h4><p>Change status from "Pending" to "Active" to approve new district user registrations.</p></div></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-chart-line"></i> Sub-City Wide Oversight</h3>
+            <p>You can view all data across your entire sub-city:</p>
+            <ul>
+                <li><strong>View Peace Keepers:</strong> See all peace keepers from all districts</li>
+                <li><strong>View Crime Cases:</strong> See all crime cases from all districts</li>
+                <li><strong>Attendance Data:</strong> Monitor attendance across all districts</li>
+                <li><strong>Crime Geo Location:</strong> View crime hotspots across your sub-city</li>
+                <li><strong>Analyze Peace Keepers & Crimes:</strong> Generate sub-city wide reports</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-tasks"></i> Sub-City Admin Permissions</h3>
+            <table class="permission-table">
+                <thead><tr><th>Permission</th><th>Available</th><th>Scope</th></tr></thead>
+                <tbody>
+                    <tr><td>Approve Certificate Requests</td><td class="check-yes">✅ Yes</td><td>Your sub-city (first approval)</td></tr>
+                    <tr><td>Manage District Users</td><td class="check-yes">✅ Yes</td><td>Your sub-city only</td></tr>
+                    <tr><td>View All Data</td><td class="check-yes">✅ Yes</td><td>Your entire sub-city</td></tr>
+                    <tr><td>View Activity Logs</td><td class="check-no">❌ No</td><td>Super Admin only</td></tr>
+                    <tr><td>Bulk Registration</td><td class="check-no">❌ No</td><td>Super Admin only</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- CITY USER TAB -->
+    <div id="city" class="tab-content">
+        <div class="card">
+            <h2><i class="fas fa-landmark"></i> City User Training</h2>
+            <div class="tip-box">
+                <i class="fas fa-info-circle"></i>
+                <strong>Role Summary:</strong> City Users have the highest level of administrative authority, with complete visibility across ALL sub-cities. They provide final approval for certificates and can generate certificates directly.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-certificate"></i> Certificate Management (Final Approval)</h3>
+            <p>You provide the FINAL approval for certificates after Sub-City Admins have approved them.</p>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Open Manage Certificates</h4><p>Click <strong>Manage Certificates</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Review Pending City Approval</h4><p>Click <strong>Pending City Approval</strong> tab to see certificates waiting for YOU.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Preview and Approve/Reject</h4><p>Preview certificate → Click <strong>Approve</strong> for final approval, or <strong>Reject</strong> with reason.</p></div></li>
+            </ul>
+            <div class="tip-box">
+                <i class="fas fa-lightbulb"></i>
+                <strong>Direct Generation:</strong> You can also click <strong>Generate Certificate</strong> to create certificates directly without going through the approval chain.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-chart-line"></i> City-Wide Oversight</h3>
+            <p>You have complete visibility across ALL sub-cities:</p>
+            <table class="data-table">
+                <thead><tr><th>Sub-City</th><th>Peace Keepers</th><th>Crime Cases</th><th>Active %</th></tr></thead>
+                <tbody>
+                    <tr><td>Kolfe Keranyo</td><td>2,450</td><td>890</td><td>85%</td></tr>
+                    <tr><td>Bole</td><td>2,800</td><td>1,050</td><td>82%</td></tr>
+                    <tr><td>Addis Ketema</td><td>2,200</td><td>780</td><td>88%</td></tr>
+                    <tr><td>Kirkos</td><td>2,100</td><td>720</td><td>86%</td></tr>
+                    <tr><td>Lideta</td><td>1,900</td><td>650</td><td>84%</td></tr>
+                    <tr><td>Yeka</td><td>2,600</td><td>950</td><td>83%</td></tr>
+                    <tr><td>Gulele</td><td>2,300</td><td>820</td><td>87%</td></tr>
+                    <tr><td>Arada</td><td>2,400</td><td>880</td><td>85%</td></tr>
+                    <tr><td>Akaki Kality</td><td>1,800</td><td>620</td><td>89%</td></tr>
+                    <tr><td>Nifas Silk Lafto</td><td>3,950</td><td>1,540</td><td>80%</td></tr>
+                    <tr><td><strong>TOTAL</strong></td><td><strong>24,500</strong></td><td><strong>8,900</strong></td><td><strong>84%</strong></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-tasks"></i> City User Permissions</h3>
+            <table class="permission-table">
+                <thead><tr><th>Permission</th><th>Available</th><th>Scope</th></tr></thead>
+                <tbody>
+                    <tr><td>Final Certificate Approval</td><td class="check-yes">✅ Yes</td><td>All sub-cities</td></tr>
+                    <tr><td>Direct Certificate Generation</td><td class="check-yes">✅ Yes</td><td>Any peace keeper</td></tr>
+                    <tr><td>View All Data</td><td class="check-yes">✅ Yes</td><td>Entire city</td></tr>
+                    <tr><td>Manage All Users</td><td class="check-yes">✅ Yes</td><td>All sub-cities</td></tr>
+                    <tr><td>View Activity Logs</td><td class="check-no">❌ No</td><td>Super Admin only</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- SYSTEM ADMIN TAB -->
+    <div id="system-admin" class="tab-content">
+        <div class="card">
+            <h2><i class="fas fa-server"></i> System Admin Training</h2>
+            <div class="tip-box">
+                <i class="fas fa-info-circle"></i>
+                <strong>Role Summary:</strong> System Admins manage the technical and administrative aspects of the system. There are three types: District System Admin, Sub-City System Admin, and Super Admin.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-users-gear"></i> System Admin Role Comparison</h3>
+            <table class="data-table">
+                <thead><tr><th>Feature</th><th>District System Admin</th><th>Sub-City System Admin</th><th>Super Admin</th></tr></thead>
+                <tbody>
+                    <tr><td>Scope</td><td>Single District</td><td>Entire Sub-City</td><td>Entire City</td></tr>
+                    <tr><td>Users They Can Manage</td><td>Staff, Ketena, Blok</td><td>District users</td><td>ALL users</td></tr>
+                    <tr><td>View Activity Logs</td><td class="check-no">❌ No</td><td class="check-no">❌ No</td><td class="check-yes">✅ Yes</td></tr>
+                    <tr><td>Manage Certificates</td><td class="check-no">❌ No</td><td class="check-yes">✅ Yes</td><td class="check-yes">✅ Yes</td></tr>
+                    <tr><td>Bulk Registration</td><td class="check-no">❌ No</td><td class="check-no">❌ No</td><td class="check-yes">✅ Yes</td></tr>
+                    <tr><td>Encoding Converter</td><td class="check-yes">✅ Yes</td><td class="check-yes">✅ Yes</td><td class="check-yes">✅ Yes</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-address-card"></i> User Management (By Role)</h3>
+            <p><strong>District System Admin:</strong> Manage Staff, Ketena, and Blok users in your district.</p>
+            <p><strong>Sub-City System Admin:</strong> Manage District users in your sub-city.</p>
+            <p><strong>Super Admin:</strong> Manage ALL users across all sub-cities.</p>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Open User Management</h4><p>Click <strong>User Management</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Filter by User Type</h4><p>Use filters to find specific user types.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Manage User</h4><p>Click <strong>Manage</strong> to edit user details, status, and permissions.</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Approve New Users</h4><p>Change status from "Pending" to "Active" to approve new user registrations.</p></div></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-history"></i> Activity Log Management (Super Admin Only)</h3>
+            <p>The Activity Log records EVERY action taken by EVERY user in the system.</p>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Open Activity Management</h4><p>Click <strong>Activity Management</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Filter Logs</h4><p>Filter by date range, username, action type, or table name.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>View Details</h4><p>Click <strong>View</strong> to see complete details including old vs new values.</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Export Logs</h4><p>Export as CSV or Excel for audit purposes.</p></div></li>
+            </ul>
+            <div class="warning-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Audit Purpose:</strong> Activity logs are used to track all system changes, investigate issues, and ensure compliance.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-upload"></i> Bulk Registration (Super Admin Only)</h3>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Open Bulk Registration</h4><p>Click <strong>Bulk Registration</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Download Template</h4><p>Click <strong>Download Template</strong> to get the CSV template.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Fill Data</h4><p>Add peace keeper records to the CSV file (required columns: Full_Name, Gender, District, Ketena, Blok, Telephone).</p></div></li>
+                <li><div class="step-number">4</div><div class="step-content"><h4>Upload File</h4><p>Click upload area → Select your CSV file → Review parsed data.</p></div></li>
+                <li><div class="step-number">5</div><div class="step-content"><h4>Confirm Upload</h4><p>Click <strong>Confirm Upload</strong> and monitor progress.</p></div></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-exchange-alt"></i> Encoding Converter (All System Admins)</h3>
+            <p>Convert tab-separated files to CSV format for bulk registration, especially useful for Amharic text.</p>
+            <ul class="step-list">
+                <li><div class="step-number">1</div><div class="step-content"><h4>Open Encoding Converter</h4><p>Click <strong>Encoding Converter</strong> in the sidebar.</p></div></li>
+                <li><div class="step-number">2</div><div class="step-content"><h4>Upload or Paste</h4><p>Upload your tab-separated file OR paste data directly.</p></div></li>
+                <li><div class="step-number">3</div><div class="step-content"><h4>Convert</h4><p>Click <strong>Convert & Download</strong> to get the CSV file.</p></div></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- COMMON FEATURES TAB -->
+    <div id="common" class="tab-content">
+        <div class="card">
+            <h2><i class="fas fa-tools"></i> Common Features for All Users</h2>
+            <p>These features are available to most user types (with varying permissions).</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-search"></i> Searching and Filtering</h3>
+            <p><strong>Search Bar:</strong> Type any keyword (name, ID, phone number) to filter results instantly.</p>
+            <p><strong>Advanced Filters:</strong> Use dropdown filters to narrow down by Sub-City, District, Ketena, Blok, date range, or status.</p>
+            <p><strong>Clear Filters:</strong> Click the <strong>Reset</strong> button to clear all filters.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-download"></i> Exporting Data</h3>
+            <p><strong>CSV Export:</strong> Download data as CSV for analysis in Excel.<br>
+            <strong>Excel Export:</strong> Download as Excel file for reports.<br>
+            <strong>Print:</strong> Print the current view directly from your browser.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-language"></i> Changing Language</h3>
+            <p>Click the language button in the top bar (shows current language) → Select your preferred language (English, Amharic, Afaan Oromoo, or Tigrinya). The interface switches immediately.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-palette"></i> Changing Theme</h3>
+            <p>Click the theme button (palette icon) in the top bar → Select Light, Dark, High Contrast, Sepia, or Blue Light theme.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-bell"></i> Notifications</h3>
+            <p>The bell icon 🔔 shows unread message count. Click to see recent notifications. Clicking a notification takes you to the related page.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-envelope"></i> Office Communication</h3>
+            <p>Internal messaging system for communicating with other users in your scope. Click <strong>Office Communication</strong> → <strong>Compose</strong> → Select recipients → Write message → Send.</p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-user-edit"></i> Updating Your Account</h3>
+            <p>Click <strong>Update Account</strong> to change your full name, telephone, password, and profile picture. Click <strong>Update More Information</strong> for additional personal details.</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p><i class="fas fa-copyright"></i> 2026 Addis Ababa Peace & Security Bureau Management System</p>
+    <p>Official Training Tutorial - Version 1.0</p>
+    <p><i class="fas fa-envelope"></i> For support, contact your system administrator</p>
+</div>
+
+<div class="scroll-top" id="scrollTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+    // Tab switching
+    function switchToTab(tabId) {
+        // Update active tab in navigation
+        document.querySelectorAll('.nav-tabs a').forEach(link => {
+            link.classList.remove('active');
+            if(link.getAttribute('data-tab') === tabId) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Show selected tab content
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        document.getElementById(tabId).classList.add('active');
+        
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    
+    // Add click handlers to nav tabs
+    document.querySelectorAll('.nav-tabs a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const tabId = link.getAttribute('data-tab');
+            switchToTab(tabId);
+        });
+    });
+    
+    // Scroll to top button
+    const scrollTop = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollTop.classList.add('visible');
+        } else {
+            scrollTop.classList.remove('visible');
+        }
+    });
+    
+    scrollTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Get current hash from URL
+    const hash = window.location.hash.substring(1);
+    if (hash && document.getElementById(hash)) {
+        switchToTab(hash);
+    }
+    
+    // Update URL hash when switching tabs
+    const originalSwitchToTab = switchToTab;
+    window.switchToTab = function(tabId) {
+        originalSwitchToTab(tabId);
+        window.location.hash = tabId;
+    };
+    switchToTab = window.switchToTab;
+</script>
+</body>
+</html>
+```
